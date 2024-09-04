@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+:root {
+    --sidebar-width: 270px;
+    --sidebar-height: 90vh;
+}
+
+.sidebar {
+    height: 5000px;
+    width: 250px;
+    background-color: #171717;
+    color: white;
+    position: fixed;
+    min-height: var(--sidebar-height);
+    top: 85px; /* 네비게이션 바 높이 만큼 내림 */
+    margin-top: 0; /* 여기서 margin-top 조정 */
+    z-index: 500; /* 사이드바가 네비게이션 바 아래에 오도록 */
+}
+
+.event_select {
+    margin: 20px 15px;
+}
+
+.event_select select {
+    padding: 10px;
+    height: 50px;
+    width: 220px;
+    font-size: 20px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    appearance: none; /* 기본 드롭다운 화살표 제거 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-item {
+    border-bottom: 1px solid #444;
+}
+
+.menu-link {
+    display: block;
+    padding: 20px 25px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.menu-link:hover {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.submenu {
+    list-style-type: none;
+    padding: 0;
+    display: none;
+}
+
+.menu-item:hover .submenu {
+    display: block;
+}
+
+.submenu li a {
+    display: block;
+    padding: 10px 50px;
+    background-color: #444;
+    color: white;
+    text-decoration: none;
+}
+
+.submenu li a:hover {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}

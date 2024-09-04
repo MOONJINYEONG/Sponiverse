@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Noto Sans KR", sans-serif;
+}
+
+.sport {
+	font-family: "Noto Sans KR", sans-serif;
+	align-items: center;
+	width: 1200px;
+	margin: 0 auto 60px auto;
+}
+
+a {
+	text-decoration: none; /* 링크 밑줄 없애기 */
+}
+
+.menu_title {
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0;
+	margin-bottom: 5px;
+}
+
+.menu_subtitle {
+	font-size: 18px;
+	color: gray;
+	color: gray;
+	margin-bottom: 30px;
+}
+
+.sport img {
+	border: none;
+	width: 125px;
+	height: 125px;
+}

@@ -1,0 +1,231 @@
+@charset "UTF-8";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+body{
+	background-color: #f8f9fa;
+}
+
+.channel-list-container {
+	width: 1200px;
+    margin: 32px auto;
+    padding: 10px;
+}
+
+.header-row {
+    background-color: #f8fafb;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-options {
+    display: flex;
+}
+
+.filter-select {
+    margin-right: 16px;
+}
+
+.filter-dropdown {
+    width: 100%;
+    padding: 5px;
+}
+
+.info-row {
+    padding: 10px;
+}
+
+.info-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-details label {
+    margin-right: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.action-btn {
+    padding: 8px 12px;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    content: "\25BC";
+    margin-left: 5px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+}
+
+.dropdown-container:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    width: 200px;
+    height: 40px;
+    padding: 5px;
+}
+
+.search-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.list-header {
+    background-color: #f8fafb;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}
+
+.list-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-header-item {
+    flex: 1;
+}
+
+.list-row {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.applicant-info .name {
+    font-weight: 700;
+}
+
+.applicant-info .email, .applicant-info .phone {
+    word-break: break-all;
+}
+
+.ticket-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticket-info .ticket-count {
+    margin-left: 100px;
+}
+
+.payment-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-status {
+    font-size: 12px;
+}
+
+.payment-time {
+    font-size: 12px;
+}
+
+.status-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.status-confirm {
+    color: rgb(141, 113, 221);
+}
+
+.status-change-btn {
+    border: 1px solid rgb(228, 228, 228);
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 4px 6px;
+    background-color: white;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.attendance-checkbox {
+    margin-right: 16px;
+}
+
+.empty-space {
+    flex: 1;
+}
+
+.action-links {
+    text-align: right;
+}
+
+.action-link-group {
+    margin-top: 10px;
+}
+
+.file-download {
+    display: none;
+}
+
+.memo-link, .edit-link, .cancel-link {
+    color: rgb(58, 132, 232);
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.cancel-link {
+    color: rgb(191, 69, 69);
+}
+

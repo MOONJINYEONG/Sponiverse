@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+   margin-top: 110px;
+   background-color: #f8f9fa;
+}
+
+.event_notice {
+   width: 582px;
+   margin: 32px 0px 32px 775px;
+   gap: 10px;
+}
+
+.notice_header {
+   margin-top: 70px;
+}
+
+.notice_header h2 {
+   font-size: 24px;
+   font-weight: bold;
+}
+
+#no_notice_message {
+   text-align: center;
+   font-size: 20px;
+   margin: 70px 0;
+}
+
+.notice_header p {
+   color: #878D91;
+}
+
+.notice_btn {
+   width: 85px;
+   height: 35px;
+   float: right;
+   border: 1px solid black;
+   border-radius: 4px;
+   background-color: white;
+   cursor: pointer;
+   font-size: 15px;
+}
+
+.notice_content {
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-shadow: 0 2px 3px rgba(0, 0, 0, .15);
+   padding: 24px;
+   margin-top: 16px;
+}
+
+.notice_content h3 {
+   font-size: 20px;
+}
+
+.notice_content img {
+   float: right;
+}
+
+#write_date {
+   color: #878D91;
+}
+
+#notice_title {
+   margin: 10px 0px;
+   padding: 10px 0px 15px 0px;
+   border-bottom: 1px solid #ccc;
+}
+
+#notice_content_body {
+   white-space: pre-wrap; /* 줄바꿈을 유지 */
+   margin: 10px 0px;
+   padding-top: 5px;
+}
+
+/* --------------------- 모달창 --------------------- */
+#modal-content {
+   height: 400px;
+   overflow-y: auto;
+}
+
+.modal-dialog {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+/*삭제메뉴*/
+#delete_menu {
+   display: none; 
+   position: absolute;
+   background-color: white;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   width: 90px;
+   transform: translateX(-75px);
+}
+
+#mynotice {
+   color: red;
+   text-decoration: none;
+   display: block;
+}
+
+#mynotice:hover {
+   color: black;
+   text-decoration: none; /* 밑줄을 없애기 위해 none 설정 */
+}
+
+#mynotice:focus {
+   outline: none; /* 포커스 시 아웃라인을 제거 */
+}
+
+#image {
+   cursor: pointer;
+}

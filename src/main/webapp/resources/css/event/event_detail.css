@@ -1,0 +1,440 @@
+@charset "UTF-8";
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+   font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 네비게이션 바의 검색 입력창 스타일 추가 (절대 수정하지 말것!) */
+.navibar .searchbox {
+   width: 342px;
+   height: 42px;
+   border: 1px solid #ccc;
+   border-radius: 20px;
+   padding: 10px 20px;
+   font-size: 15px;
+   outline: none;
+}
+
+.event_detail_page {
+   display: flex; /* Flexbox 사용 */
+   justify-content: space-between; /* 요소들 간의 간격을 균등하게 */
+   align-items: flex-start; /* 세로 정렬 기준을 위쪽으로 */
+   width: 1200px;
+   margin: 110px auto; /* 중앙 정렬 */
+}
+
+/* 행사 정보 라인 -------------------------------------------- */
+.event_line {
+   width: 68%; /* 왼쪽 영역의 너비 */
+}
+
+#event_image {
+   width: 816px;
+   height: 460px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+}
+
+.button_bar {
+   display: flex; /* Flexbox 사용 */
+   margin-top: 20px;
+}
+
+.button_bar ul {
+   display: flex;
+   padding: 0;
+   list-style-type: none; /* 리스트 스타일 제거 */
+   width: 100%;
+   justify-content: space-between;
+}
+
+.button_bar li {
+   flex: 1;
+}
+
+.button_bar button {
+   position: relative;
+   width: 100%;
+   padding: 10px 0;
+   border: none;
+   background-color: white;
+   color: gray;
+   cursor: pointer;
+   font-size: 16px;
+}
+
+.button_bar button::after {
+   content: "";
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   width: 50%; /* 버튼 너비의 50%로 설정 */
+   height: 2px;
+   background-color: transparent;
+   transform: translateX(-50%);
+   transition: background-color 0.3s;
+}
+
+.button_bar button.active::after, .button_bar button:hover::after {
+   background-color: #0099bc; /* 클릭 시 및 호버 시 변경될 border-bottom 색상 */
+}
+
+.button_bar button.active, .button_bar button:hover {
+   color: #0099bc;
+}
+
+section {
+   margin-bottom: 30px;
+}
+
+h4 {
+   margin-bottom: 15px;
+   font-size: 18px;
+}
+
+.place #loc {
+   color: gray;
+}
+
+.notice_box, .ask_box {
+   padding: 10px;
+   background-color: #F8FAFB;
+   text-align: center;
+   font-size: 14px;
+}
+
+.cancel_box {
+   padding: 10px 20px;
+   background-color: #F8FAFB;
+   text-align: left;
+   font-size: 14px;
+}
+
+.contact {
+   background-color: #F8FAFB;
+   padding: 10px 20px;
+   font-size: 14px;
+}
+
+.contact_category {
+   color: gray;
+   display: inline-block;
+   width: 100px;
+}
+
+.contact #name, #email {
+   margin-bottom: 30px;
+}
+
+.contact_category span {
+   display: inline-block;
+   margin-right: 2px;
+}
+
+.contact_db {
+   display: inline-block;
+   vertical-align: top; /* 수직 정렬 설정 */
+}
+
+/* 신청하기 라인 -------------------------------------------- */
+.apply_line {
+   width: 30%;
+   position: sticky; /* 스크롤 시 상단에 고정 */
+   top: 110px;
+   height: auto;
+}
+
+.apply_box {
+   border: 1px solid white;
+   border-radius: 4px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   padding: 20px;
+   background-color: white;
+}
+
+.apply_category a {
+   text-decoration: none;
+   color: black;
+   font-size: 14px;
+}
+
+.apply_category #sports {
+   padding: 0 5px 0 0;
+}
+
+.apply_category #loc {
+   padding: 0px 0px 0px 5px;
+}
+
+.apply_name {
+   font-size: 20px;
+   font-weight: bold;
+   margin: 16px 0 0;
+}
+
+.apply_ticket {
+   width: 100%;
+   background-color: #F8FAFB;
+   margin-top: 16px;
+   padding: 16px;
+   justify-content: center;
+   align-items: center;
+}
+
+.price {
+   margin-left: auto;
+   color: #0099bc;
+   float: right;
+}
+
+.remain {
+   color: gray;
+   text-align: right;
+   font-size: 14px;
+   width: 100%;
+   background-color: #F8FAFB;
+   padding: 0px 16px 16px 16px;
+}
+
+#apply_btn {
+   width: 100%;
+   height: 45px;
+   margin: 20px 0px 5px 0px;
+   background-color: #0099bc;
+   color: white;
+   border-radius: 4px;
+   border: 1px solid #0099bc;
+   cursor: pointer;
+   font-size: 15px;
+}
+
+#apply_btn:hover {
+   background-color: #0077a8;
+   border: 1px solid #0077a8;
+}
+
+/*--------------------- 공지/안내 ---------------------*/
+.notice-container {
+   padding: 24px;
+   max-height: 100%;
+   overflow: hidden;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   background-color: #fff;
+}
+
+.notice-header {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 3px;
+   padding: 10px;
+   border-bottom: 1px solid #ccc;
+}
+
+.notice-title {
+   font-size: 18px;
+   font-weight: bold;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.notice-content {
+   padding: 10px;
+   position: relative;
+}
+
+.notice-content-body {
+   position: relative;
+   transition: max-height 0.3s ease;
+   white-space: pre-wrap; /* 줄바꿈을 유지 */
+}
+
+.notice-date {
+   color: #0099bc;
+   float: right;
+}
+
+/*--------------------- 문의하기 ---------------------*/
+.ask_box_list {
+   padding: 20px;
+   max-height: 100%;
+   background-color: #F8FAFB; 
+}
+
+.cmt {
+   color: #0099bc;
+}
+
+.date {
+   color: #878d91;
+}
+
+.qa_content, .comment_content {
+   margin-top: 5px;
+   white-space: pre-wrap; /* 줄바꿈을 유지 */
+}
+
+.qa_box {
+   margin-bottom: 10px;
+   padding: 10px;
+   font-size: 14px;
+}
+
+.deleteComment{
+   width: 40px;
+   height: 30px;
+   float: right;
+   color:#878d91;
+   border: none;
+   background-color: #F8FAFB; 
+   cursor: pointer;
+}
+
+.comment{
+   padding: 10px;
+}
+
+.comment_textarea{
+   width: 100%;
+   overflow: auto; 
+   resize: vertical;
+   outline: none;
+   padding: 5px;
+   margin-top: 5px;
+}
+
+.submitComment{
+   float: right;
+   background-color: #F8FAFB;
+   border: none;
+   cursor: pointer;
+}
+
+.lockicon{
+   vertical-align: middle;
+   width: 17px;
+   margin-bottom: 3px;
+}
+
+#host{
+   color: #0099bc;
+}
+
+.toggle_btn{
+   border: none;
+   background-color: #F8FAFB;
+   float: right;
+   color: #878d91;
+   cursor: pointer;
+}
+
+/*------------------- 문의하기 모달창 ------------------*/
+h3 {
+   text-align: left;
+   margin-bottom: 25px;
+}
+
+.modal_popup p {
+   text-align: left;
+   color: gray;
+   font-size: 14px;
+   margin-bottom: 10px;
+}
+
+.modal_btn {
+   padding: 7px;
+   background-color: white;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   color: gray;
+   cursor: pointer;
+   float: right;
+   justify-content: center;
+}
+
+.modal_btn:active, .close_btn:active {
+   transform: scale(0.95); /* 버튼을 눌렀을 때 크기 축소 효과 */
+   background-color: #e0e0e0; /* 눌렀을 때 배경색 변화 */
+}
+
+/* 모달창 스타일 */
+.modal {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.5);
+   z-index: 1000; /* 모달창이 최상위에 위치하도록 설정 */
+}
+
+.modal_popup {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 380px;
+   padding: 20px;
+   background: #ffffff;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+   text-align: center;
+}
+
+#qa_is_private {
+   accent-color: #0099bc;
+}
+
+.modal_popup textarea {
+   width: 100%;
+   height: 150px;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   margin-top: 15px;
+   font-size: 14px;
+   outline: 2px solid #0099bc;
+   resize: vertical;
+}
+
+.submit_btn, .close_btn {
+   display: inline-block;
+   padding: 7px;
+   margin: 5px;
+   border-radius: 4px;
+   cursor: pointer;
+   transition: background-color 0.2s;
+}
+
+.submit_btn {
+   width: 80px;
+   background-color: #0099bc;
+   color: white;
+   border: 1px solid #0099bc;
+}
+
+.submit_btn:hover {
+   background-color: #0077a8;
+   border: 1px solid #0077a8;
+}
+
+.close_btn {
+   width: 50px;
+   background-color: white;
+   color: black;
+   border: 1px solid #ccc;
+}
+
+.close_btn:hover {
+   background-color: #ccc;
+}

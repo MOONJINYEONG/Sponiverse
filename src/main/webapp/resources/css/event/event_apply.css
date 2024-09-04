@@ -1,0 +1,410 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+	font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 네비게이션 바의 검색 입력창 스타일 추가 (절대 수정하지 말것!) */
+.navibar .searchbox {
+	width: 342px;
+	height: 42px;
+	border: 1px solid #ccc;
+	border-radius: 20px;
+	padding: 10px 20px;
+	font-size: 15px;
+	outline: none;
+}
+
+.apply_form {
+	display: flex; /* Flexbox 사용 */
+	justify-content: space-between; /* 요소들 간의 간격을 균등하게 */
+	align-items: flex-start; /* 세로 정렬 기준을 위쪽으로 */
+	width: 1200px;
+	margin: 110px auto; /* 중앙 정렬 */
+}
+
+.title {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/******************************************************/
+
+/*-----신청행사정보라인-----*/
+#thumbnail {
+	width: 200px;
+	height: 113px; /* 이미지의 비율을 유지 */
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.info_line {
+	width: 66%;
+}
+
+/*행사정보*****************************************************/
+.event_info {
+	padding: 32px;
+}
+
+.event_info .event_thumnail img {
+	width: 322px;
+	height: 182px;
+	border: 1px solid #ccc;
+}
+
+.event_name {
+	margin: 24px 0 0;
+}
+
+.event_name a {
+	font-size: 20px;
+	color: black;
+	text-decoration: none;
+}
+
+.event_date {
+	padding: 16px 0 0;
+}
+
+.event_addr {
+	padding: 8px 0 0;
+}
+
+.event_name a:hover {
+	text-decoration: underline;
+}
+
+.event_info .event_date, .event_info .event_addr {
+	font-size: 15px;
+	color: #878D91;
+}
+
+/*티켓명/금액/잔여수량*****************************************************/
+.event_ticket {
+	border-radius: 4px;
+	padding: 16px 0 0;
+}
+
+.ticket_details {
+	background-color: #F2F4F5;
+	border: 1px solid #F2F4F5;
+	border-radius: 4px;
+	padding: 32px;
+}
+
+#ticketname {
+	font-size: 16px;
+}
+
+.pay_option {
+	padding: 15px 0 0;
+}
+
+.pay_option_text {
+	padding: 0 0 16px;
+	font-size: 16px;
+}
+
+.ticket_etc {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+
+.amount_btn {
+	display: flex;
+	align-items: center;
+	background-color: #ffff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-right: 20px;
+}
+
+.amount_btn input[type="button"] {
+	width: 25px;
+	height: 25px;
+	font-size: 16px;
+	background-color: #ffff;
+	border: none;
+	cursor: pointer;
+}
+
+.amount_btn .quantity {
+	width: 25px;
+	text-align: center;
+	margin: 0 5px;
+}
+
+.quantity {
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+#event_price {
+	margin-left: auto;
+	color: #0099bc;
+	font-size: 16px;
+	float: right;
+}
+
+/*신청자 정보*****************************************************/
+.apply_info {
+	padding: 48px 0 0;
+}
+
+.apply_info span {
+	color: #BF4545;
+}
+
+.apply_info_title {
+	padding: 0 0 24px;
+}
+
+.apply_info .subtitle, .apply_info a {
+	padding: 10px 0 0;
+	font-size: 15px;
+	color: #878D91;
+}
+
+.user_name, .user_email, .user_tel {
+	padding: 32px;
+}
+
+.user_name input[type="text"], .user_email input[type="email"],
+	.user_tel input[type="tel"] {
+	width: 80%;
+	margin: 10px 0 0;
+	padding: 14px 12px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	outline: none;
+	transition: box-shadow 0.2s ease, border 0.2s ease; /* 부드러운 전환 효과 */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 입체감을 위한 그림자 추가 */
+}
+
+.apply_info input[type="text"]:focus, .apply_info input[type="tel"]:focus
+	{
+	border: 1px solid #0099bc;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 0 0 1px #0099bc;
+	/* 부드러운 전환 효과를 위한 box-shadow */
+}
+
+.user_name, .user_email, .user_tel {
+	padding: 20px;
+}
+
+.user_email #email {
+	color: #878D91;
+}
+
+/* 성별 선택 라디오 버튼 */
+.user_gender {
+	padding: 20px;
+	accent-color: #0099bc;
+}
+
+.user_gender label {
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+/* radio 버튼 스타일 */
+.user_gender input[type="radio"] {
+	width: auto;
+	margin: 10px 0 0; 
+	padding: 20px;
+	border: none;
+	box-shadow: none;
+	cursor: pointer;
+}
+
+/* 나이 선택 드롭다운 */
+.user_age {
+	padding: 10px 20px 20px 20px;
+	position: relative;
+}
+
+/* select 요소 스타일 */
+.user_age select {
+	width: 80%;
+	margin: 10px 0 0;
+	padding: 14px 12px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	outline: none;
+	transition: box-shadow 0.2s ease, border 0.2s ease;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background: #fff
+		url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path fill="none" stroke="%23333" stroke-width="1.5" d="M1 1l4 4 4-4"/></svg>')
+		no-repeat right 10px center;
+	background-size: 10px;
+}
+
+/******************************************************/
+
+/*-----신청하기 라인-----*/
+.apply_line {
+	width: 32%;
+	position: sticky; /* 스크롤 시 상단에 고정 */
+	top: 110px;
+	height: auto;
+}
+
+.apply_box {
+	border: 1px solid white;
+	border-radius: 4px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+	padding: 30px; /* 콘텐츠에 여백 추가 */
+	background-color: white; /* 배경색 추가 (그림자가 더 잘 보이도록) */
+}
+
+#price_text {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#apply_price {
+	font-size: 28px;
+	font-weight: bold;
+	color: #0099bd;
+	padding: 10px 0 8px;
+}
+
+.option_btn input[type="button"] {
+	width: 47%;
+	padding: 8px 0;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 13px;
+	color: #878D91;
+	background-color: white;
+	cursor: pointer;
+	position: relative;
+	z-index: 1;
+}
+
+.option_btn input[type="button"].active {
+	border: 1px solid #0099bc;
+	color: #0099bc;
+}
+
+.account_comment {
+	display: none; /* 초기에는 숨김 */
+	margin-top: 10px; /* 상단 여백 추가 */
+	padding: 16px 0 0;
+}
+
+#virtualAccountBtn {
+	margin-left: 10px;
+}
+
+#virtualAccountBtn:checked ~ .account_comment {
+	display: block; /* 가상계좌 버튼을 누르면 account_comment가 나타남 */
+}
+
+#comment_title {
+	font-weight: bold;
+	color: #BF4545;
+	font-size: 13px;
+	amrgin margin-bottom: 5px;
+}
+
+#comment_ment {
+	font-size: 14px;
+	color: #878D91;
+	padding: 10px 0 0;
+}
+
+.agree_box {
+	padding: 24px 0 0;
+}
+
+.allagree {
+	font-size: 15px;
+	padding: 0 0 16px;
+}
+
+.allagree div, .sub_agree div {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.allagree label {
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+.agree_box .line {
+	border-bottom: 0.1px solid #ccc;
+}
+
+.sub_agree {
+	font-size: 12px;
+	padding: 20px 0 0;
+}
+
+.sub_agree label {
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+.sub_agree a {
+	margin-left: auto;
+	color: #878D91;
+}
+
+.apply_line input[type="checkbox"] {
+	width: 16px;
+	height: 16px;
+	accent-color: #0099bc;
+	margin-top: 2px;
+}
+
+.submit_button {
+	padding: 32px 0 0;
+}
+
+.submit_button input[type="button"] {
+	width: 100%;
+	height: 48px;
+	padding: 0 16px;
+	background-color: #0099bc;
+	color: white;
+	font-size: 15px;
+	border: 1px solid #0099bc;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.submit_button input[type="button"]:disabled {
+	border: 1px solid #cccccc;
+	background-color: #cccccc; /* 회색 배경 */
+	color: #666666; /* 회색 텍스트 */
+	cursor: not-allowed; /* 커서 모양 변경 */
+}
+
+.submit_button input[type="button"]:enabled {
+	background-color: #0099bc;
+	color: white;
+	cursor: pointer;
+}
+
+.submit_button input[type="button"]:hover:enabled {
+	background-color: #007b99;
+	border-color: #007b99;
+}

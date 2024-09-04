@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="o">
+
+	<insert id="user_order" parameterType="order"
+		useGeneratedKeys="true" keyProperty="order_idx" keyColumn="order_idx">
+		INSERT INTO
+		getspo_order (
+		order_idx, user_idx, event_idx, order_date, order_name,
+		order_tel, order_email,
+		order_addr, order_gen, order_age
+		) VALUES (
+		seq_order_idx.nextVal,
+		#{user_idx, jdbcType=INTEGER},
+		#{event_idx,
+		jdbcType=INTEGER},
+		sysdate,
+		#{order_name, jdbcType=VARCHAR},
+		#{order_tel, jdbcType=VARCHAR},
+		#{order_email, jdbcType=VARCHAR},
+		#{order_addr, jdbcType=VARCHAR},
+		#{order_gen, jdbcType=VARCHAR},
+		#{order_age, jdbcType=INTEGER}
+		)
+	</insert>
+
+
+	<insert id="user_pay" parameterType="pay">
+		INSERT INTO getspo_pay (
+		pay_idx, order_idx, user_idx, pay_price, imp_uid, merchant_uid,
+		apply_num
+		) VALUES (
+		seq_pay_idx.nextVal,
+		#{order_idx},
+		#{user_idx},
+		#{pay_price},
+		#{imp_uid},
+		#{merchant_uid},
+		#{apply_num}
+		)
+	</insert>
+
+	<!-- 유저별 신청 행사 리스트 -->
+	<select id="user_order_list" parameterType="java.util.Map"
+		resultType="order">
+		SELECT *
+		FROM (
+		SELECT o.*, e.event_sports_idx, e.event_name,
+		e.event_h_start, e.event_addr
+		, ROW_NUMBER() OVER (ORDER BY
+		o.order_date DESC) AS rnum
+		FROM getspo_order o
+		JOIN getspo_event e ON
+		o.event_idx = e.event_idx
+		WHERE o.user_idx = #{user_idx} AND
+		o.cancel_status = 'N'
+		)
+		WHERE rnum BETWEEN
+		#{start} AND #{end}
+	</select>
+
+	<!-- 유저별 신청취소 행사 리스트 -->
+	<select id="user_cancel_list" parameterType="int"
+		resultType="order">
+		SELECT *
+		FROM (
+		SELECT o.*, e.event_price, e.event_name
+		,
+		ROW_NUMBER() OVER (ORDER BY o.cancel_date DESC) AS rnum
+		FROM
+		getspo_order o
+		JOIN getspo_event e ON o.event_idx = e.event_idx
+		WHERE
+		o.user_idx = #{user_idx} AND o.cancel_status = 'Y'
+		)
+		WHERE rnum BETWEEN
+		#{start} AND #{end}
+	</select>
+
+	<!-- 사용자가 이미 신청한 이벤트인지 확인 -->
+	<select id="isAlreadyRegistered" parameterType="java.util.Map"
+		resultType="int">
+		SELECT COUNT(*) FROM getspo_order WHERE user_idx =
+		#{user_idx} AND event_idx
+		= #{event_idx} AND cancel_status = 'N'
+	</select>
+
+	<!-- 신청이벤트 삭제 -->
+	<delete id="user_order_delete" parameterType="int">
+		delete from
+		getspo_order WHERE order_idx = #{order_idx}
+	</delete>
+
+	<!-- 행사 신청한 유저 조회 -->
+	<select id="user_order_event" parameterType="int"
+		resultType="order">
+		SELECT * FROM getspo_order where event_idx = #{event_idx}
+	</select>
+
+	<!-- 마이페이지 참가 행사 목록 - 행사 취소(삭제) -->
+	<update id="cancel_event" parameterType="java.util.Map">
+		UPDATE getspo_order SET
+		cancel_status = 'Y', cancel_date = sysdate WHERE
+		user_idx = #{user_idx}
+		and event_idx = #{event_idx}
+	</update>
+
+	<!-- 유저 행사 신청한 카운트 -->
+	<select id="ordercount" parameterType="int" resultType="int">
+		SELECT
+		COUNT(*) FROM getspo_order WHERE user_idx = #{user_idx}
+	</select>
+
+	<!-- 유저 신청취소 행사 카운트 -->
+	<select id="orderCancelCount" parameterType="int"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM getspo_order
+		WHERE user_idx =
+		#{user_idx} AND cancel_status = 'Y'
+	</select>
+	
+	<!-- 취소자 총 수  -->
+	<select id="canceltotal" parameterType="int" resultType="int">
+		SELECT COUNT(*) FROM getspo_order WHERE event_idx = #{event_idx} AND cancel_status = 'Y'
+	</select>
+	
+</mapper>

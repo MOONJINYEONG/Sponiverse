@@ -1,0 +1,380 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 네비게이션 바의 검색 입력창 스타일 추가 (절대 수정하지 말것!) */
+.navibar .searchbox {
+    border-radius: 20px;
+    outline: none;
+}
+
+.navibar .searchbox:focus {
+    border-radius: 20px;
+    outline: none; 
+    border: 1px solid #ccc;
+}
+
+/* 메뉴별 페이지 화면 공통 설정 */
+.container {
+    width: 1200px;
+    margin: 100px auto;
+}
+
+/* 참여행사 화면 설정 */
+.content_event {
+    width: 918px;
+    float: right;
+    padding: 30px;
+    min-height: 200px;
+}
+
+/* 취소내역 화면 설정 */
+.content_cancel {
+    width: 918px;
+    float: right;
+    padding: 30px;
+    min-height: 200px;
+    display: none;
+}
+
+/* 정보수정, 회원탈퇴 화면 설정 */
+.content_modify {
+    width: 918px;
+    float: right;
+    padding: 30px;
+    min-height: 200px;
+    display: none;
+    justify-content: center; /* 중앙 정렬 */
+}
+
+/* 회원탈퇴 화면 설정 */
+.content_withdraw {
+    width: 918px;
+    float: right;
+    padding: 30px;
+    min-height: 200px;
+    display: none;
+}
+
+/* ------------------------------ 마이페이지메뉴 ------------------------------ */
+.mypage_menu {
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    float: left;
+    border: none;
+    padding: 10px;
+}
+
+.mypage_menu {
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.mypage_menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.mypage_menu ul li {
+    margin-bottom: 10px;
+}
+
+.mypage_menu ul li a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.mypage_menu ul li a:hover {
+    background-color: #e6f7fd;
+}
+
+/* -------------------------------- 참가행사 -------------------------------- */
+.content_event table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+}
+
+.content_event table th, .content_event table td {
+    border: 1px solid #ccc; /* 내부 셀 테두리 설정 */
+    padding: 10px;
+    text-align: center;
+}
+
+.content_event table th {
+    background-color: #f0f0f0; /* 선택적으로 헤더 배경색 설정 */
+}
+
+.content_event table td {
+    vertical-align: middle;
+}
+
+.content_event table a {
+    color: #0099bc; /* 링크 색상 설정 */
+    text-decoration: none;
+}
+
+.content_event table a:hover {
+    text-decoration: underline; /* 링크 호버 시 밑줄 효과 */
+}
+
+.tr {
+    height: 50%;
+}
+
+/* -------------------------------- 취소내역 -------------------------------- */
+.content_cancel table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+}
+
+.content_cancel table th, .content_cancel table td {
+    border: 1px solid #ccc; /* 내부 셀 테두리 설정 */
+    padding: 10px;
+    text-align: center;
+}
+
+.content_cancel table th {
+    background-color: #f0f0f0; /* 선택적으로 헤더 배경색 설정 */
+}
+
+.content_cancel table td {
+    vertical-align: middle;
+}
+
+.content_cancel table a {
+    color: #0099bc; /* 링크 색상 설정 */
+    text-decoration: none;
+}
+
+.content_cancel table a:hover {
+    text-decoration: underline; /* 링크 호버 시 밑줄 효과 */
+}
+
+.tr {
+    height: 50%;
+}
+
+/* -------------------------------- 정보수정 -------------------------------- */
+.information{
+	width: 400px;
+}
+
+.inp {
+    width: 378px;
+    height: 10px;
+    padding: 14px 12px;
+    margin-top: 5px;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+input[type="text"], input[type="tel"], input[type="date"], input[type="password"]
+    {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="text"]:focus, input[type="tel"]:focus, input[type="date"]:focus,
+    input[type="password"]:focus {
+    transition: box-shadow 0.2s ease, border 0.1s ease; /* 부드러운 전환 효과 */
+    border: 2px solid #0099bc; /* 포커스 시 테두리 색상 */
+    outline: none; /* 기본 포커스 효과 제거 */
+}
+
+#user_id {
+    font-size: 15px;
+    color: #878D91;
+    margin-top: -10px;
+}
+
+.addr_group {
+    margin-bottom: 20px;
+    margin-top: -13px;
+}
+
+.addrinp {
+    width: 378px;
+    height: 10px;
+    padding: 12px 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+h4 {
+	width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+/* 주소 찾기 버튼 */
+.btn {
+    width: 50px;
+    height: 25px;
+    background-color: white;
+    color: #0099bc;
+    border: 1px solid #0099bc;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: auto; /* 버튼을 오른쪽 끝으로 밀어냄 */
+}
+
+/* 취소 버튼 */
+#cancel_btn {
+    width: 80px;
+    height: 38px;
+    margin-bottom: 10px;
+    background-color: white;
+    color: #878D91;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    padding: 0 10px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+#cancel_btn:active {
+    background-color: #ddd;
+    border-color: #bbb;
+}
+
+/* 확인 버튼 */
+#ok_btn {
+    width: 80px;
+    height: 38px;
+    margin-bottom: 10px;
+    background-color: #0099bc;
+    color: white;
+    border: 1px solid #0099bc;
+    border-radius: 4px;
+    font-size: 15px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+#ok_btn:active {
+    background-color: #007a99;
+    border-color: #007a99;
+}
+
+.last_btn_div {
+    text-align: center; 
+    margin-top: 10px;
+}
+
+/* -------------------------------- 회원탈퇴 -------------------------------- */
+.content_withdraw h3 {
+    margin-top: 15px;
+}
+
+.ment {
+    font-size: 14px;
+    margin: 30px 0 0 0;
+}
+
+.Guidelines {
+    background-color: #FCFCFC;
+    padding: 48px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 40px;
+}
+
+.Guide_first {
+    margin: 0 0 10px;
+    font-size: 13px;
+}
+
+.Guide {
+    margin: 12px 0 10px;
+    font-size: 13px;
+}
+
+.Guide_last {
+    margin: 12px 0 0;
+    font-size: 13px;
+}
+
+.withdraw_input {
+    margin-bottom: 50px;
+    text-align: left; /* 입력 필드는 왼쪽 정렬 유지 */
+}
+
+.agree {
+    display: flex;
+    align-items: center;
+    margin: 16px 0 0;
+}
+
+.agree input[type=checkbox] {
+    width: 15px;
+    height: 15px;
+    margin: 2px 5px 0 0;
+    padding-top: 5px;
+    accent-color: #0099bc;
+}
+
+.agree label {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.pwd {
+    margin: 70px 0 0 0;
+}
+
+.pwd p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.pwd input[type=password] {
+    width: 250px;
+    height: 17px;
+    padding: 10px 15px;
+    border: 1px solid #ccc; /* 기본 테두리 색상 */
+    border-radius: 4px; /* 모서리  */
+    outline: none;
+}
+
+.pwd input[type=password]:focus {
+    border: 2px solid #0099bc;
+}
+
+/* 회원탈퇴 버튼 */
+.pwd input[type=button] {
+    width: 100px;
+    height: 38px;
+    background-color: #0099bc;
+    color: white;
+    border: 1px solid #0099bc;
+    border-radius: 4px;
+    font-size: 14px;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.pwd input[type=button]:active {
+    background-color: #007a99;
+    border-color: #007a99;
+}

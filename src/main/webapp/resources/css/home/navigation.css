@@ -1,0 +1,201 @@
+@charset "UTF-8";
+
+/* 네비게이션바 */
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Noto Sans KR", sans-serif; /* 전체 폰트 설정 */
+}
+
+.navibar {
+	width: 100%;
+	height: 85px;
+	position: fixed;
+	background: white;
+	z-index: 1000; /* 높은 z-index 값 설정 */
+	font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 네비게이션 바의 해상도 */
+.resolution {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+/* 로고 관련 스타일 */
+.logo_div {
+	display: inline-block;
+	float: left;
+	margin: 5px;
+}
+
+.main_logo {
+	width: 150px;
+	height: 50px;
+	margin-top: 10px;
+	border-radius: 0;
+	transition-duration: 1s;
+}
+
+/* 메인로고 hover
+.main_logo:hover {
+	transform: rotate(360deg);
+	border-radius: 50px;
+}
+ */
+
+/* 왼쪽 부분 */
+.left {
+	float: left;
+	margin: 20px 0 20px 10px; /* 상하 여백은 같으므로 한 번만 명시 */
+	display: flex; /* Flexbox를 사용하여 내부 요소들을 정렬 */
+	align-items: center; /* 수직 가운데 정렬 */
+}
+
+/* 검색박스 */
+.searchbox {
+	width: 300px;
+	height: 20px;
+	border: 1px solid #ccc;
+	border-radius: 20px;
+	padding: 10px 20px;
+	font-size: 15px;
+	outline: none;
+}
+
+/* 검색 버튼 */
+.searchbutton {
+	width: 40px;
+	height: 40px;
+}
+
+/* 오른쪽 부분 */
+.right {
+	display: flex; /* Flexbox를 사용하여 내부 요소들을 정렬 */
+	align-items: center; /* 수직 가운데 정렬 */
+	height: 100%; /* 부모 요소(.right)의 높이를 기준으로 링크의 높이 설정 */
+	float: right;
+	margin-top: 25px;
+	font-size: 15px;
+}
+
+/* 로그인, 회원가입 */
+.signin, .signup {
+	text-decoration: none;
+	color: black;
+	background-color: white;
+	border-radius: 5px;
+	padding: 7px;
+}
+
+/* 무료행사개설 */
+.new_event {
+	text-decoration: none;
+	color: #0099bc;
+	background-color: white;
+	border-radius: 5px;
+	padding: 7px;
+	margin-left: 10px;
+}
+
+/* 호스트센터 */
+.hostpage {
+	text-decoration: none;
+	color: #0099bc;
+	background-color: #e6f7fd;
+	border-radius: 5px;
+	padding: 7px;
+	margin-left: 10px;
+}
+
+/* 호스트센터 버튼 클릭시 */
+.hostpage:active {
+	transform: scale(0.95); /* 버튼을 눌렀을 때 크기 축소 효과 */
+	background-color: #cceff9; /* 눌렀을 때 배경색 변화 */
+}
+
+/* 로그인-마이페이지 메뉴 바 */
+#menu-items {
+	display: none;
+	position: absolute;
+	top: 70%; /* 사용자 버튼 아래에 위치하도록 설정 */
+	margin-top: 10px;
+	padding: 12px 16px;
+	width: 160px;
+	background-color: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 4px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	z-index: 1000; /* 다른 요소 위에 나타나도록 설정 */
+	transform: translateX(-110px); /* 위치 조정 */
+	border: 1px solid #e5e7eb;
+}
+
+#menu-items.open {
+	display: block;
+}
+
+.user-button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+/* 유저이름 */
+.user-name {
+	margin-right: 5px;
+	color: black;
+	font-size: 15px;
+}
+
+/* 아래 화살표 */
+.user-icon {
+	fill: currentColor;
+	height: 17px;
+	width: 17px;
+}
+
+#menu-1 {
+	padding: 12px 16px; /* 상하 8px, 좌우 16px의 padding 설정 */
+	font-size: 14px; /* 텍스트 크기 설정 */
+	color: #4b5563; /* 회색 텍스트 색상 */
+	border-bottom: 1px solid #e5e7eb; /* 아래쪽 테두리 설정 */
+}
+
+/* 유저 아이디 */
+#menu-1 #user_id {
+	white-space: nowrap; /* p 요소의 텍스트가 넘칠 경우 줄 바꿈 금지 설정 */
+}
+
+/* 마이페이지 버튼 */
+#menu-1 #mypage_btn {
+	color: #7a7a7a; /* 링크 색상 설정 */
+	display: block; /* 블록 요소로 설정하여 전체 너비를 차지하도록 함 */
+	margin: 8px 0px 0px;
+	text-decoration: none; /* 밑줄 제거 */
+}
+
+/* 마이페이지메뉴 라인 */
+.border-t {
+	border-top: 0.5px solid #ccc;
+}
+
+/* 로그아웃 버튼 */
+#logout-button {
+	display: block;
+	width: 100%;
+	padding: 8px 16px;
+	font-size: 14px;
+	text-align: left;
+	color: #BF4545;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background: white;
+}
+
+#logout-button:hover {
+	background-color: #f3f4f6;
+}

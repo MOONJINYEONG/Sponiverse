@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	 
+	<bean id="category_daoBean" class="dao.CategoryDAO">
+		<constructor-arg ref="sqlSessionBean"/>
+	</bean>
+		
+	<bean id="event_daoBean" class="dao.EventDAO">
+		<constructor-arg ref="sqlSessionBean"/>
+	</bean>
+
+	<bean id="user_daoBean" class="dao.UserDAO">
+		<constructor-arg ref="sqlSessionBean"/>
+	</bean>
+	
+	<bean id="passwordreset_daoBean" class="dao.PasswordResetTokenDAO">
+		<constructor-arg ref="sqlSessionBean"/>
+	</bean>
+	
+	<bean id="order_daoBean" class="dao.OrderDAO">
+		<constructor-arg ref="sqlSessionBean"/>
+	</bean>
+	
+	
+</beans>

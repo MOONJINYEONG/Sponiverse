@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="useGeneratedKeys" value="true" />
+		<setting name="defaultExecutorType" value="REUSE" />
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="vo.CategoryVO" alias="category"/>
+		<typeAlias type="vo.EventVO" alias="event"/>
+		<typeAlias type="vo.UserVO" alias="user"/>
+		<typeAlias type="vo.PasswordResetTokenVO" alias="reset"/>
+		<typeAlias type="vo.OrderVO" alias="order"/>
+		<typeAlias type="vo.PayVO" alias="pay"/>
+		<typeAlias type="vo.NoticeVO" alias="notice"/> 
+		<typeAlias type="vo.QaVO" alias="qa"/> 
+		<typeAlias type="vo.CommentVO" alias="comment"/> 
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="config/mybatis/mapper/getspomain.xml" />
+		<mapper resource="config/mybatis/mapper/user.xml" />
+		<mapper resource="config/mybatis/mapper/passwordresettoken.xml" />
+		<mapper resource="config/mybatis/mapper/event.xml" />
+		<mapper resource="config/mybatis/mapper/order.xml" />
+	</mappers>
+</configuration>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="u">
+
+<!-- 회원가입 -->
+	<insert id="insert_user" parameterType="user">
+		insert into getspo_user values(seq_user_idx.nextVal, #{user_name}, #{user_id}, #{user_pwd}, #{user_birth}, #{user_tel}, #{user_email}, #{user_addrcode}, #{user_addr}, #{user_addrdetail})
+	</insert>
+	
+<!-- 아이디 중복확인 -->
+<select id="select_id" resultType="String" parameterType="String">
+	select * from getspo_user where user_id = #{user_id}
+</select>
+
+<!-- 유저 로그인 -->
+<select id="user_login" resultType="user" parameterType="String">
+	select * from getspo_user where user_id = #{user_id}
+</select>
+
+<!-- 자동로그인 유저정보 찾기 -->
+<select id="select_user" resultType="user" parameterType="String">
+	select * from getspo_user where user_id = #{user_id}
+</select>
+
+<!-- 아이디 찾기  -->
+<select id="forgot_id" resultType="user" parameterType="user">
+	SELECT user_id, user_name, user_email
+        FROM getspo_user
+        WHERE user_name = #{user_name} AND user_email = #{user_email}
+</select>
+
+<!-- 비밀번호 찾기 -->
+<select id="forgot_pwd" resultType="user" parameterType="user">
+	SELECT * FROM getspo_user 
+        WHERE user_id = #{user_id} 
+        AND user_name = #{user_name} 
+        AND user_email = #{user_email}
+</select>
+
+
+<!-- 비밀번호 변경(업데이트) -->
+	<update id="update_pwd" parameterType="user">
+		UPDATE getspo_user SET user_pwd = #{user_pwd} WHERE user_id = #{user_id}
+	</update>
+
+<!-- 삭제를 위한 비밀번호 체크 -->
+	<select id="compare_pwd" resultType="user" parameterType="int">
+		select * from getspo_user where user_idx = #{user_idx}
+	</select>
+	
+	<!-- 회원 정보 수정을 위한 idx로 유저 정보 조회 -->
+	<select id="selectOne" resultType="user" parameterType="int">
+		select * from getspo_user where user_idx=#{user_idx}
+	</select>
+	<!-- 
+	mypage에서 내가 참가한 이벤트의 기본정보 확인이 가능해야 함 
+	번호 event_idx
+	조회수 event_viewCount
+	이벤트명 event_name
+	개최지역 event_loc
+	이벤트일시 formattedEventHStart
+	이벤트개설일 formattedEventHEnd 
+	
+	쿼리문
+	SELECT e.* FROM getspo_user u 
+	JOIN getspo_event e 
+	ON u.user_idx = e.user_idx 
+	WHERE u.user_idx = e.user_idx
+	-->
+	
+	<!-- 회원 정보 수정 -->
+	<update id="update_userInfo" parameterType="user">
+		update getspo_user
+		set user_name=#{user_name}, user_pwd=#{user_pwd},
+		user_tel=#{user_tel}, user_email=#{user_email}, user_birth=#{user_birth},
+		user_addrcode=#{user_addrcode}, user_addr=#{user_addr},
+		user_addrdetail=#{user_addrdetail}
+		where user_idx=#{user_idx}
+	</update>
+	
+	<!-- 회원탈퇴(DB삭제) -->
+	<delete id="delete_userInfo" parameterType="int">
+		delete from getspo_user where user_idx=#{user_idx}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
